@@ -34,7 +34,6 @@ void QuickSort_vector(vector<int>&A,vector<int>&B, int start, int end)  // quick
 
 
 
-
 int main() {
     vector<int>A;
     vector<int>B;
