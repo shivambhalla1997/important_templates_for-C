@@ -6,19 +6,19 @@
 #include<string>
 #include<iostream>
 #include<vector>
-#define mod 19
-#define hash_size 30
+#define mod 1000000007
+#define x 263
 
 using namespace std;
 
 int main()
 {
-    vector<string>hash_table[hash_size]; // creating hash table
-    memset(hash_table,0,sizeof(hash_table));
-    long long int k,N;
+    long long int m,N;
     string name,action;
     long long int num;
-    cin>>k>>N;
+    cin>>m>>N;
+    vector<string>hash_table[m]; // creating hash table
+    memset(hash_table,0,sizeof(hash_table));
     N++;
     for(long long int i=0;i<N;i++)
     {
@@ -37,9 +37,17 @@ int main()
                 ss>>action>>name;
             }
             
-            long long int key=(((name.size())%mod)%hash_size); //creating the key
+            
+            long long int key=0; // key making function
+            for(int i=name.size()-1;i>=0;i--)
+            {
+                key=(key*(x*((int)name[i])))%mod;
+            }
+            key=key%m;
+            
             if(action[0]=='a')
             {
+                cout<<key<<endl;
                 int flag=0;
                 vector<string>::iterator it;
                 for(it=hash_table[key].begin(); it!=hash_table[key].end(); it++) //finding the string
