@@ -125,28 +125,16 @@ int main()
             }
             else
             {
-                if()
-                vector<string>::iterator it;
-                for(it=hash_table[key].begin(); it!=hash_table[key].end(); it++) //finding the string
+                if(hash_table[key].size()==0)
                 {
-                    string str1=*it;
-                    if(str1[0]==name[0])
-                    {
-                        int flag2=0;
-                        for(int i=0;i<name.size();i++)
-                        {
-                            if(str1[i]!=name[i])
-                                {
-                                    flag2++;
-                                    break;
-                                }
-                        }
-                        if(flag2==0)
-                        {
-                            flag++;
-                            break;
-                        }
-                    }
+                    cout<<endl;
+                }
+                else
+                {
+                    vector<string>::reverse_iterator it;
+                    for(it=hash_table[key].rbegin(); it!=hash_table[key].rend(); it++) //print the entire row
+                        cout<<*it<<" ";
+                    cout<<endl;    
                 }
             }
         }
