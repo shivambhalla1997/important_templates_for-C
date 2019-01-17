@@ -14,11 +14,11 @@ void min_heapify(long long int* arr, long long int i, long long int N, vector<pa
     long long int l=(2*i)+1; // left child of the node
     long long int r=(2*i)+2; // right child of the node
     long long int smallest;
-    if(l<=N && arr[l]<arr[i]) // findind the smallest among the 3
+    if(l<N && arr[l]<arr[i]) // findind the smallest among the 3
         smallest=l;
     else
         smallest=i;
-    if(r<=N && arr[r]<arr[smallest])
+    if(r<N && arr[r]<arr[smallest])
         smallest=r;
     if(smallest!=i)
     {
